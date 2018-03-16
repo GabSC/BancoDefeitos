@@ -51,6 +51,12 @@ namespace BancoDeDefeitos.View
             DataGridObject obj = new DataGridObject();
 
 
+            obj.EquipId = equipamentoId;
+            obj.Peca = txbPeca.Text.Trim().ToUpper();
+            obj.Sintoma = txtDefeito.Text.Trim().ToUpper();
+            obj.Causa = txtCausa.Text.Trim().ToUpper();
+            obj.Solucao = txtSolucao.Text.Trim().ToUpper();
+
             List<ValidationResult> listErros = new List<ValidationResult>();
             ValidationContext contexto = new ValidationContext(obj);
 
@@ -64,13 +70,7 @@ namespace BancoDeDefeitos.View
                     PesquisarEquipamentoController ctrl = new PesquisarEquipamentoController();
                     //adciono uma nova solução
 
-
-
-                    obj.EquipId = equipamentoId;
-                    obj.Peca = txbPeca.Text.Trim().ToUpper();
-                    obj.Sintoma = txtDefeito.Text.Trim().ToUpper();
-                    obj.Causa = txtCausa.Text.Trim().ToUpper();
-                    obj.Solucao = txtSolucao.Text.Trim().ToUpper();
+                    
 
                     var salvo = ctrl.SalvarNovaSolucao(obj);
 
@@ -80,7 +80,10 @@ namespace BancoDeDefeitos.View
 
                         lbStatus.Text = "Novo defeito adicionando com sucesso!";
                         lbStatus.ForeColor = Color.SpringGreen;
-
+                        txbPeca.Clear();
+                        txtCausa.Clear();
+                        txtDefeito.Clear();
+                        txtSolucao.Clear();
                     }
                     else
                     {

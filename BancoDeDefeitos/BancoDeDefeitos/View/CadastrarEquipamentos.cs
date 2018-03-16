@@ -116,7 +116,7 @@ namespace BancoDeDefeitos.View
             var observacao = txbOBS.Text;
             var sintomas = txbSintoma.Text;
 
-           if(marca == null && modelo == null && tipo == null && String.IsNullOrEmpty(observacao) && String.IsNullOrEmpty(sintomas))
+           if(marca == null || modelo == null || tipo == null || String.IsNullOrEmpty(observacao) || String.IsNullOrEmpty(sintomas))
             {
 
                 lbStatusMsg.Text = "Possui campos vazios!";

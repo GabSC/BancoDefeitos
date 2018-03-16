@@ -13,7 +13,7 @@ namespace BancoDeDefeitos.Model
         public int Id { get; set; }
         public String Peca { get; set; }
         public String Solucao { get; set; }
-        [Required]
+       
         public String DescricaoDefeito { get; set; }
         public String Causa { get; set; }
 
