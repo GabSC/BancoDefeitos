@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BancoDeDefeitos", "BancoDeDefeitos\BancoDeDefeitos.csproj", "{9D4A7490-7454-4C82-B814-39F876968969}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D4A7490-7454-4C82-B814-39F876968969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4A7490-7454-4C82-B814-39F876968969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4A7490-7454-4C82-B814-39F876968969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4A7490-7454-4C82-B814-39F876968969}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F79391A4-04CD-4111-9E42-94A7C92A584A}
+	EndGlobalSection
+EndGlobal
