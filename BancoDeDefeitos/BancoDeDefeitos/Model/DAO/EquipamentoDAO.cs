@@ -15,11 +15,15 @@ namespace BancoDeDefeitos.Model.DAO
             int id = 0;
             MySqlConnection conexao = MySQLConn.GetInstancia().GetConexao();
 
+            
+
             conexao.Open();
 
             MySqlCommand command = new MySqlCommand();
             command.Connection = conexao;
             command.CommandType = System.Data.CommandType.Text;
+
+           
 
             try
             {

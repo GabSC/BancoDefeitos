@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BancoDeDefeitos.Controller;
+using MySql.Data.MySqlClient;
 
 namespace BancoDeDefeitos.View
 {
@@ -89,7 +91,110 @@ namespace BancoDeDefeitos.View
 
 
         }
+
+       
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            String caminho = "";
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+               
+             
+                caminho = fbd.SelectedPath;
+            }
+           
+
+            AplicacaoController app = new AplicacaoController();
+
+            bool sucesso = app.RealizarBackupDoBD(caminho);
+
+            if (sucesso)
+            {
+
+                lbSatus.Text = "Backup salvo com sucesso";
+                lbSatus.ForeColor = Color.SpringGreen;
+
+            }
+            else
+            {
+
+                lbSatus.Text = "Erro ao exportar o banco!";
+                lbSatus.ForeColor = Color.Red;
+
+            }
+
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+
+            bool sucesso = false;
+
+
+
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            string caminho = "";
+
+           if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                
+                               
+               caminho =  ofd.FileName;
+
+            }
+
+            string[] ext = ofd.SafeFileName.Split('.');
+
+            if(ext[1].Equals("sql"))
+            {
+
+                AplicacaoController app = new AplicacaoController();
+
+                sucesso = app.ImportarBackupDoBD(caminho);
+
+                if (sucesso)
+                {
+
+                    lbSatus.Text = "Backup restaurado com sucesso";
+                    lbSatus.ForeColor = Color.SpringGreen;
+
+                }
+                else
+                {
+
+                    lbSatus.Text = "Erro ao restaurar o banco!";
+                    lbSatus.ForeColor = Color.Red;
+
+                }
+
+            }
+            else
+            {
+
+                lbSatus.Text = "Arquivo de extensão inválida";
+                lbSatus.ForeColor = Color.Red;
+
+            }
+
+           
+
+            
+
+        }
     }
 }
 
-// tirar  a restrição de sintoma da tela de editar ou adicionar ou modificar no model
+// pesquisar melhor com o projeto baixado,como importar e automaticamente criar o bd se usar
+//a  abordagem abaixo.
+
+// desenvolver tela de ajuda, com os links do youtube explicando o fuincionamento do software.
+//Desde a instalação do mySQL até a importação dos dados do programa para o banco de dados
